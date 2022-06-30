@@ -13,7 +13,7 @@ button bounds(302, 2, 80, 40) channel("wide") text("WIDE") colour:0(72, 72, 72, 
 
 combobox bounds(26, 156, 80, 20) channel("mode"), text("Classic", "Synced", "Granular")
 
-rslider bounds(216, 116, 50, 70), channel("int"), text("Intensity"), range(0, 1, 1, 0.25, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(216, 116, 50, 70), channel("int"), text("Intensity"), range(0, 1, 1, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 combobox bounds(26, 126, 80, 20) channel("shapes")  popupText("shape") text("sin", "square", "rampup", "rampdown")
 
 
@@ -25,7 +25,7 @@ groupbox bounds(0, 0, 273, 292) identChannel("classic"), colour(35, 35, 35, 0) o
 rslider bounds(20, 40, 68, 70), channel("delt"), range(0.001, 10, 0.2, 0.5, 0.001), text("Time"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(90, 40, 68, 70), channel("fco"), range(1, 22000, 220000, 0.5, 0.001), text("Tone"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(162, 40, 50, 70), channel("Feedback"), text("Feedback"), range(0, 1, 0.2, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(216, 40, 50, 70), channel("Rate"), text("Rate"), range(0, 10, 0.2, 0.25, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(216, 40, 50, 70), channel("Rate"), text("Rate"), range(0, 20, 0.2, 0.25, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 
 gentable bounds(122, 118, 80, 68), identChannel("gentable1"), tableNumber(99.0), sampleRange(-1024, 1024), tableColour:0(212, 212, 212, 255), visible(1)
 
@@ -52,10 +52,10 @@ groupbox bounds(0, 0, 273, 292) identChannel("granular"), colour(35, 35, 35, 0) 
 rslider bounds(20, 40, 68, 70), channel("delt3"), range(0.001, 10, 0.2, 0.5, 0.001), text("Time"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(90, 40, 68, 70), channel("fco3"), range(1, 22000, 220000, 0.5, 0.001), text("Tone"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(162, 40, 50, 70), channel("Feedback3"), text("Feedback"), range(0, 1, 0.2, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(216, 40, 50, 70), channel("Rate3"), text("Rate"), range(0, 10, 0.2, 0.25, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(216, 40, 50, 70), channel("Rate3"), text("Rate"), range(0, 20, 0.2, 0.25, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 
-rslider bounds(20, 200, 68, 70), channel("size"), range(10, 1000, 100, 1, 1), text("Size"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(90, 200, 68, 70), channel("density"), range(0.1, 20, 4, 1, 0.001), text("Density"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(20, 200, 68, 70), channel("size"), range(10, 5000, 100, 0.25, 1), text("Size"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(90, 200, 68, 70), channel("density"), range(0.1, 20, 4, 0.5, 0.001), text("Density"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(162, 200, 50, 70), channel("shift"), text("Shift"), range(-2400, 2400, 0, 1, 100), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(216, 200, 50, 70), channel("spread"), text("Spread"), range(0, 1, 0, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 
@@ -64,7 +64,7 @@ gentable bounds(122, 118, 80, 68), identChannel("gentable3"), tableNumber(97.0),
 
 
 
-</Cabbage>
+
 <CsoundSynthesizer>
 <CsOptions>
 -n -d -+rtmidi=NULL -M0 -m0d 
@@ -163,21 +163,33 @@ instr 4
 ;effect
 
     ;classic
-    
+kMode chnget "mode"
+
 kInt chnget "int"
-    
+
+  if kMode!=3   then
+
+   
 kRate chnget "Rate"
 
 kDelt chnget "delt"
-
-kWide chnget "wide"
-
-kMode chnget "mode"
-
-
 kFB chnget  "Feedback"
 kFB2 chnget  "Feedback2" 
 kFco chnget "fco"
+else
+kRate chnget "Rate3"
+
+kDelt chnget "delt3"
+kFB chnget  "Feedback3"
+
+kFco chnget "fco3"
+endif
+
+kWide chnget "wide"
+
+
+
+
 
 kDryGain chnget "dgain"
 kWetGain chnget "wgain"
@@ -343,11 +355,13 @@ aOutR = ((a2*kDryGain)+(aTapR*kWetGain))
 
 
 outs aOutL, aOutR
+clear aTapL, aTapR
+clear a1,a2
 
 elseif kMode==3 then
 
-aOutL = ((a1*kDryGain)+(aTapL*kWetGain))
-aOutR = ((a2*kDryGain)+(aTapR*kWetGain))
+aOutL = aTapL
+aOutR = aTapR
 
     chnset aOutL, "Left"
     chnset aOutR, "Right"
@@ -363,7 +377,7 @@ aR chnget "Right"
  gaWritePointer = phasor(1)
  tablew(aL,gaWritePointer,giTableL,1)
  tablew(aR,gaWritePointer,giTableR,2)
-
+clear aL,aR
 
 endin
 
@@ -387,6 +401,15 @@ endin
 schedule(2,giDelay/1000,-1) ;2=instr2 (granulator)
 
 instr 3 ;Grain
+kMode chnget "mode"
+
+kDryGain chnget "dgain"
+kWetGain chnget "wgain"
+
+a1 inch 1
+a2 inch 2
+
+
  iStart = p4
  iSpeed = p5    
  iSpread = p6
@@ -398,9 +421,19 @@ instr 3 ;Grain
 ipan         random  0.5 - (iSpread * 0.5), 0.5 + (iSpread * 0.5)  ; random pan position for this grain
 gaGMixL      =       gaGMixL + (aOutL * ipan)           ; left channel mix added to global variable
 gaGMixR      =       gaGMixR + (aOutR * (1 - ipan))   ; right channel mix added to global variable
+
+aOutL = ((a1*kDryGain)+(gaGMixL *kWetGain))
+aOutR = ((a2*kDryGain)+(gaGMixR *kWetGain))
          ; output
-             outs    gaGMixL, gaGMixR                              ; send global audio signals to output           
-             clear   gaGMixL, gaGMixR                              ; clear global audio variables
+         
+      if kMode != 3 then
+      clear aOutL, aOutR
+      else
+     
+             outs    aOutL, aOutR                              ; send global audio signals to output           
+             clear   gaGMixL, gaGMixR      
+                                      ; clear global audio variables
+           endif
 endin
 
 
@@ -413,3 +446,4 @@ i2 0 z
 i3 0 z
 </CsScore>
 </CsoundSynthesizer>
+</Cabbage>
