@@ -4,16 +4,24 @@ form caption("PaxDelay2") size(400, 300), pluginId("def1") colour(255, 255, 255,
 
 ;global
 
-rslider bounds(290, 170, 100, 100), channel("dgain"), range(0, 0.5, 0, 1, 0.01), text("Dry Gain"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(290, 48, 100, 100), channel("wgain"), range(0, 0.5, 0.5, 1, 0.01), text("Wet Gain"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(292, 148, 100, 100), channel("dgain"), range(0, 2, 0, 1, 0.01), text("Dry Gain"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(292, 48, 100, 100), channel("wgain"), range(0, 2, 0.9, 1, 0.01), text("Wet Gain"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 
-label bounds(20, 22, 253, 15) channel("label10007") text("set Rate to 0 [left] for normal delay") fontColour(0, 0, 0, 255)
-label bounds(16, 7, 253, 15) channel("label10008") text("set Feedback to 1 [right] to freeze") fontColour(0, 0, 0, 255)
-button bounds(302, 2, 80, 40) channel("wide") text("WIDE") colour:0(72, 72, 72, 255)
+label bounds(20, 22, 253, 15) channel("label10007") text("set Intensity to 0 for normal delay") fontColour(0, 0, 0, 255)
+label bounds(16, 7, 253, 15) channel("label10008") text("enjoy the limitations") fontColour(0, 0, 0, 255)
+
+
+button bounds(302, 4, 80, 40) channel("wide") text("WIDE") colour:0(72, 72, 72, 255)
+
+button bounds(302, 252, 80, 40) channel("lofi") text("LOFI") colour:0(72, 72, 72, 255)
+
+
+
+
 
 combobox bounds(26, 156, 80, 20) channel("mode"), text("Classic", "Synced", "Granular")
 
-rslider bounds(216, 116, 50, 70), channel("int"), text("Intensity"), range(0, 1, 1, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(216, 116, 50, 70), channel("int"), text("Intensity"), range(0, 1, 1, 0.5, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 combobox bounds(26, 126, 80, 20) channel("shapes")  popupText("shape") text("sin", "square", "rampup", "rampdown")
 
 
@@ -22,12 +30,15 @@ combobox bounds(26, 126, 80, 20) channel("shapes")  popupText("shape") text("sin
 
 groupbox bounds(0, 0, 273, 292) identChannel("classic"), colour(35, 35, 35, 0) outlineColour(160, 160, 160, 0) fontColour(160, 160, 160, 0) visible(1) {
 
+button bounds(100, 88, 50, 25) channel("djfilter"), text("HP", "LP"), colour:0(72, 72, 72, 255), value(1),
+
 rslider bounds(20, 40, 68, 70), channel("delt"), range(0.001, 10, 0.2, 0.5, 0.001), text("Time"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(90, 40, 68, 70), channel("fco"), range(1, 22000, 220000, 0.5, 0.001), text("Tone"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(100, 35, 50, 70), channel("fco"), range(1, 22000, 22000, 0.25, 1), text("Tone"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 0), visible(1)
 rslider bounds(162, 40, 50, 70), channel("Feedback"), text("Feedback"), range(0, 1, 0.2, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(216, 40, 50, 70), channel("Rate"), text("Rate"), range(0, 20, 0.2, 0.25, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 
 gentable bounds(122, 118, 80, 68), identChannel("gentable1"), tableNumber(99.0), sampleRange(-1024, 1024), tableColour:0(212, 212, 212, 255), visible(1)
+
 
 
 }
@@ -49,8 +60,10 @@ gentable bounds(122, 118, 80, 68), identChannel("gentable2"), tableNumber(98.0),
 
 groupbox bounds(0, 0, 273, 292) identChannel("granular"), colour(35, 35, 35, 0) outlineColour(160, 160, 160, 0) fontColour(160, 160, 160, 0) visible(0) channel("groupbox45") {
 
+button bounds(100, 88, 50, 25) channel("djfilter3"), text("HP", "LP"), colour:0(72, 72, 72, 255), value(1),
+
 rslider bounds(20, 40, 68, 70), channel("delt3"), range(0.001, 10, 0.2, 0.5, 0.001), text("Time"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(90, 40, 68, 70), channel("fco3"), range(1, 22000, 220000, 0.5, 0.001), text("Tone"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(100, 35, 50, 70), channel("fco3"), range(1, 22000, 22000, 0.25, 1), text("Tone"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 0)
 rslider bounds(162, 40, 50, 70), channel("Feedback3"), text("Feedback"), range(0, 1, 0.2, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(216, 40, 50, 70), channel("Rate3"), text("Rate"), range(0, 20, 0.2, 0.25, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 
@@ -59,7 +72,7 @@ rslider bounds(90, 200, 68, 70), channel("density"), range(0.1, 20, 4, 0.5, 0.00
 rslider bounds(162, 200, 50, 70), channel("shift"), text("Shift"), range(-2400, 2400, 0, 1, 100), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(216, 200, 50, 70), channel("spread"), text("Spread"), range(0, 1, 0, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 
-gentable bounds(122, 118, 80, 68), identChannel("gentable3"), tableNumber(97.0), sampleRange(-1024, 1024), tableColour:0(212, 212, 212, 255), visible(1)
+gentable bounds(122, 118, 80, 68), identChannel("gentable3"), tableNumber(97.0), sampleRange(-1024, 1024), , tableColour:0(212, 212, 212, 255)
 }
 
 
@@ -71,19 +84,18 @@ gentable bounds(122, 118, 80, 68), identChannel("gentable3"), tableNumber(97.0),
 </CsOptions>
 <CsInstruments>
 
-ksmps = 32
+ksmps = 256
 nchnls = 2
 0dbfs = 1
 
 ;gui
 
+
 instr 17
 
-    ;mode 
+    
 kMode init 1
 kMode chnget "mode"
-
-
 
 
 if kMode == 1 then
@@ -147,6 +159,7 @@ iTable3 ftgen 3, 0, 1024, 7, -1, 1024, 1, 1, -1, 1023, 1     ;rampup
 iTable4 ftgen 4, 0, 1024, 7, -1, 1024, 1, 1, -  1, 1023, 1     ;rampdown
       
 
+
 endin
 
 giTableL ftgen 0, 0, sr, 10, 1 ;for one second of recording
@@ -166,6 +179,8 @@ instr 4
 kMode chnget "mode"
 
 kInt chnget "int"
+
+
 
   if kMode!=3   then
 
@@ -203,7 +218,7 @@ kSync chnget "syncrate"
 kTempoRaw chnget "tempo"
 kDiv chnget "division"
 
-kTempo = kTempoRaw
+kTempo = (kTempoRaw/2)
 kTempo divz 60, kTempo, 1
 kTempo divz kTempo, kDiv, 1
 
@@ -211,8 +226,26 @@ kTempo divz kTempo, kDiv, 1
 
 kShape chnget "shapes"
 
-a1 inch 1
-a2 inch 2
+kFilterType chnget "djfilter"
+
+
+kLofi chnget "lofi"
+
+ga1 inch 1
+ga2 inch 2
+
+if kLofi == 1 then
+
+ga1   fold   ga1, 3  
+ga2   fold   ga2, 3 
+
+else
+
+ga1=ga1
+ga2=ga2
+
+endif
+
 
 
 if kMode!=2 then
@@ -249,8 +282,15 @@ endif
 
         aBufOutL    delayr  iMaxTime
         aTapL    deltapi a(kDelt) 
-        aTapL tone aTapL, kFco
-             delayw  a1 + (aTapL * kFB)
+        
+        
+        if kFilterType == 1 then
+        aTapL tonex aTapL, kFco, 2
+        else
+        aTapL atonex aTapL, kFco, 2
+        endif
+       
+             delayw  ga1 + (aTapL * kFB)
 
         aBufOutR    delayr  iMaxTime
         if kWide ==1 then
@@ -258,46 +298,50 @@ endif
             else
             aTapR    deltapi a(kDelt)
             endif
-        aTapR tone aTapR, kFco
-             delayw  a2 + (aTapR * kFB)
+         if kFilterType == 1 then
+        aTapR tonex aTapR, kFco, 2
+        else
+        aTapR atonex aTapR, kFco, 2
+        endif
+             delayw  ga2 + (aTapR * kFB)
          
          
 endif
 
 if kMode==2 then
+kSync chnget "division"
 
 if kSync==1 then
-kRate = kTempoRaw/920
+kRate = kTempoRaw/1840
 endif
 
 if kSync==2 then
-kRate = kTempoRaw/480
+kRate = kTempoRaw/960
 endif
 
 if kSync==3 then
-kRate = kTempoRaw/240
+kRate = kTempoRaw/480
 endif
 
 if kSync==4 then
-kRate = kTempoRaw/120
+kRate = kTempoRaw/240
 endif
 
 if kSync==5 then
-kRate = kTempoRaw/60
+kRate = kTempoRaw/120
 endif
 
 if kSync==6 then
-kRate = kTempoRaw/30
+kRate = kTempoRaw/60
 endif
 
 if kSync==7 then
-kRate = kTempoRaw/15
+kRate = kTempoRaw/30
 endif
 
 if kSync==8 then
-kRate = kTempoRaw/7.5
+kRate = kTempoRaw/15
 endif
-
 
 
 kLFO1 lfo kInt, kRate, 0 ;sine
@@ -334,7 +378,7 @@ endif
 
         aBufOutL    delayr  iMaxTime
         aTapL    deltapi a(kTempo)
-             delayw  a1 + (aTapL * kFB2)
+             delayw  ga1 + (aTapL * kFB2)
 
         aBufOutR    delayr  iMaxTime
         if kWide ==1 then
@@ -342,7 +386,7 @@ endif
             else
             aTapR    deltapi a(kTempo)
             endif
-             delayw  a2 + (aTapR * kFB2)
+             delayw  ga2 + (aTapR * kFB2)
 
 endif
 
@@ -350,21 +394,26 @@ endif
 
 if kMode!=3 then
 
-aOutL = ((a1*kDryGain)+(aTapL*kWetGain))
-aOutR = ((a2*kDryGain)+(aTapR*kWetGain))
+
+aOutL = ((ga1*kDryGain)+(aTapL*kWetGain))
+aOutR = ((ga2*kDryGain)+(aTapR*kWetGain))
 
 
 outs aOutL, aOutR
-clear aTapL, aTapR
-clear a1,a2
+clear aOutL, aOutR
+;clear a1,a2
 
 elseif kMode==3 then
+aDryOutL = (ga1 *kDryGain)
+aDryOutR = (ga2 *kDryGain)
 
-aOutL = aTapL
-aOutR = aTapR
+outs aDryOutL, aDryOutR
 
-    chnset aOutL, "Left"
-    chnset aOutR, "Right"
+agOutL = aTapL
+agOutR = aTapR
+
+    chnset agOutL, "Left"
+    chnset agOutR, "Right"
 
 endif
 endin
@@ -406,8 +455,6 @@ kMode chnget "mode"
 kDryGain chnget "dgain"
 kWetGain chnget "wgain"
 
-a1 inch 1
-a2 inch 2
 
 
  iStart = p4
@@ -419,20 +466,26 @@ a2 inch 2
  aOutR = poscil3:a(poscil3:a(kAntiClick,1/p3,giHalfSine),iSpeed,giTableR,iStart)
 
 ipan         random  0.5 - (iSpread * 0.5), 0.5 + (iSpread * 0.5)  ; random pan position for this grain
-gaGMixL      =       gaGMixL + (aOutL * ipan)           ; left channel mix added to global variable
-gaGMixR      =       gaGMixR + (aOutR * (1 - ipan))   ; right channel mix added to global variable
+aOutL      =       (aOutL * ipan)           ; left channel mix added to global variable
+aOutR      =       (aOutR * (1 - ipan))   ; right channel mix added to global variable
 
-aOutL = ((a1*kDryGain)+(gaGMixL *kWetGain))
-aOutR = ((a2*kDryGain)+(gaGMixR *kWetGain))
+
+
+
+aWetOutL = (aOutL *kWetGain)
+aWetOutR = (aOutR *kWetGain)
+
          ; output
          
       if kMode != 3 then
-      clear aOutL, aOutR
+      
+   clear aWetOutL, aWetOutR
+    
       else
      
-             outs    aOutL, aOutR                              ; send global audio signals to output           
-             clear   gaGMixL, gaGMixR      
-                                      ; clear global audio variables
+             outs    aWetOutL, aWetOutR                                       
+           
+                                      
            endif
 endin
 
