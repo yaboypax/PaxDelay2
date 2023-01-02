@@ -1,28 +1,30 @@
-<Cabbage>
+    <Cabbage>
 bounds(0, 0, 0, 0)
 form caption("PaxDelay2") size(400, 300), pluginId("def1") colour(255, 255, 255, 255)
 
 ;global
 
-rslider bounds(292, 148, 100, 100), channel("dgain"), range(0, 2, 0, 1, 0.01), text("Dry Gain"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(292, 48, 100, 100), channel("wgain"), range(0, 2, 0.9, 1, 0.01), text("Wet Gain"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(292, 148, 100, 100), channel("DryGain"), range(0, 2, 0, 1, 0.01), text("Dry Gain"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(292, 48, 100, 100), channel("WetGain"), range(0, 2, 0.9, 1, 0.01), text("Wet Gain"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 
 label bounds(20, 22, 253, 15) channel("label10007") text("set Intensity to 0 for normal delay") fontColour(0, 0, 0, 255)
-label bounds(16, 7, 253, 15) channel("label10008") text("enjoy the limitations") fontColour(0, 0, 0, 255)
+label bounds(16, 7, 253, 15) channel("label10008") text("creative delay for sound design") fontColour(0, 0, 0, 255)
 
 
-button bounds(302, 4, 80, 40) channel("wide") text("WIDE") colour:0(72, 72, 72, 255)
+button bounds(302, 4, 80, 40) channel("Wide") text("WIDE") colour:0(72, 72, 72, 255)
 
 button bounds(302, 252, 80, 40) channel("lofi") text("LOFI") colour:0(72, 72, 72, 255)
 
 
 
+label bounds(26, 138, 80, 12) channel("label10034") fontColour(0, 0, 0, 255) text("shape")
+label bounds(26, 172, 80, 12) channel("label10033") fontColour(0, 0, 0, 255) text("mode")
 
+combobox bounds(26, 118, 80, 20) channel("Shapes")  popupText("shape") text("sin", "square", "rampup", "rampdown")
+combobox bounds(26, 152, 80, 20) channel("Mode"), text("Classic", "Synced", "Granular")
 
-combobox bounds(26, 156, 80, 20) channel("mode"), text("Classic", "Synced", "Granular")
+rslider bounds(216, 116, 50, 70), channel("Intensity"), text("Intensity"), range(0, 1, 1, 0.5, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 
-rslider bounds(216, 116, 50, 70), channel("int"), text("Intensity"), range(0, 1, 1, 0.5, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-combobox bounds(26, 126, 80, 20) channel("shapes")  popupText("shape") text("sin", "square", "rampup", "rampdown")
 
 
 
@@ -30,10 +32,10 @@ combobox bounds(26, 126, 80, 20) channel("shapes")  popupText("shape") text("sin
 
 groupbox bounds(0, 0, 273, 292) identChannel("classic"), colour(35, 35, 35, 0) outlineColour(160, 160, 160, 0) fontColour(160, 160, 160, 0) visible(1) {
 
-button bounds(100, 88, 50, 25) channel("djfilter"), text("HP", "LP"), colour:0(72, 72, 72, 255), value(1),
+button bounds(100, 88, 50, 25) channel("FilterType"), text("HP", "LP"), colour:0(72, 72, 72, 255), value(1), visible(1)
 
-rslider bounds(20, 40, 68, 70), channel("delt"), range(0.001, 10, 0.2, 0.5, 0.001), text("Time"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(100, 35, 50, 70), channel("fco"), range(1, 22000, 22000, 0.25, 1), text("Tone"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 0), visible(1)
+rslider bounds(20, 40, 68, 70), channel("Time"), range(0.001, 10, 0.2, 0.5, 0.001), text("Time"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(100, 35, 50, 70), channel("Cutoff"), range(1, 22000, 22000, 0.25, 1), text("Tone"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 0), visible(1), textBox(off)
 rslider bounds(162, 40, 50, 70), channel("Feedback"), text("Feedback"), range(0, 1, 0.2, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(216, 40, 50, 70), channel("Rate"), text("Rate"), range(0, 20, 0.2, 0.25, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 
@@ -47,10 +49,10 @@ gentable bounds(122, 118, 80, 68), identChannel("gentable1"), tableNumber(99.0),
 
 groupbox bounds(0, 0, 273, 292) identChannel("synced"), colour(35, 35, 35, 0) outlineColour(160, 160, 160, 0) fontColour(160, 160, 160, 0) visible(0) {
 
-rslider bounds(20, 40, 68, 70), channel("tempo"), range(20, 200, 120, 1, 1), text("Tempo"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(90, 40, 68, 70), channel("division"), range(1, 8, 1, 1, 1), text("/"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(162, 40, 50, 70), channel("Feedback2"), text("Feedback"), range(0, 1, 0.2, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(216, 40, 50, 70), channel("syncrate"), text("SyncRate"), range(0 , 8, 0, 1, 1), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(20, 40, 68, 70), channel("Tempo"), range(20, 200, 120, 1, 1), text("Tempo"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(90, 40, 68, 70), channel("Division"), range(1, 8, 1, 1, 1), text("/"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(162, 40, 50, 70), channel("Feedback_Synced"), text("Feedback"), range(0, 1, 0.2, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(216, 40, 50, 70), channel("SyncRate"), text("SyncRate"), range(0 , 8, 0, 1, 1), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 
 gentable bounds(122, 118, 80, 68), identChannel("gentable2"), tableNumber(98.0), sampleRange(-1024, 1024), tableColour:0(212, 212, 212, 255), visible(1)
 
@@ -60,14 +62,14 @@ gentable bounds(122, 118, 80, 68), identChannel("gentable2"), tableNumber(98.0),
 
 groupbox bounds(0, 0, 273, 292) identChannel("granular"), colour(35, 35, 35, 0) outlineColour(160, 160, 160, 0) fontColour(160, 160, 160, 0) visible(0) channel("groupbox45") {
 
-button bounds(100, 88, 50, 25) channel("djfilter3"), text("HP", "LP"), colour:0(72, 72, 72, 255), value(1),
+button bounds(100, 88, 50, 25) channel("FilterType_Granular"), text("HP", "LP"), colour:0(72, 72, 72, 255), value(1),
 
-rslider bounds(20, 40, 68, 70), channel("delt3"), range(0.001, 10, 0.2, 0.5, 0.001), text("Time"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(100, 35, 50, 70), channel("fco3"), range(1, 22000, 22000, 0.25, 1), text("Tone"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 0)
-rslider bounds(162, 40, 50, 70), channel("Feedback3"), text("Feedback"), range(0, 1, 0.2, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
-rslider bounds(216, 40, 50, 70), channel("Rate3"), text("Rate"), range(0, 20, 0.2, 0.25, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(20, 40, 68, 70), channel("Time_Granular"), range(0.001, 10, 0.2, 0.5, 0.001), text("Time"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(100, 35, 50, 70), channel("Cutoff_Granular"), range(1, 22000, 22000, 0.25, 1), text("Tone"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 0)
+rslider bounds(162, 40, 50, 70), channel("Feedback_Granular"), text("Feedback"), range(0, 1, 0.2, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(216, 40, 50, 70), channel("Rate_Granular"), text("Rate"), range(0, 20, 0.2, 0.25, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 
-rslider bounds(20, 200, 68, 70), channel("size"), range(10, 5000, 100, 0.25, 1), text("Size"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
+rslider bounds(20, 200, 68, 70), channel("size"), range(50, 10000, 100, 0.25, 1), text("Size"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(90, 200, 68, 70), channel("density"), range(0.1, 20, 4, 0.5, 0.001), text("Density"), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(162, 200, 50, 70), channel("shift"), text("Shift"), range(-2400, 2400, 0, 1, 100), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
 rslider bounds(216, 200, 50, 70), channel("spread"), text("Spread"), range(0, 1, 0, 1, 0.001), trackerColour(82, 84, 82, 255), outlineColour(0, 0, 0, 50), textColour(0, 0, 0, 255)
@@ -84,7 +86,7 @@ gentable bounds(122, 118, 80, 68), identChannel("gentable3"), tableNumber(97.0),
 </CsOptions>
 <CsInstruments>
 
-ksmps = 256
+ksmps = 512
 nchnls = 2
 0dbfs = 1
 
@@ -93,9 +95,15 @@ nchnls = 2
 
 instr 17
 
+
+
+
+
+
+
     
 kMode init 1
-kMode chnget "mode"
+kMode chnget "Mode"
 
 
 if kMode == 1 then
@@ -122,7 +130,7 @@ if kMode == 3 then
  else   chnset "visible(0)", "granular"
 endif
 
-kShape chnget "shapes"
+kShape chnget "Shapes"
 
 if changed:k(kShape) == 1 then
         tablecopy 99, kShape
@@ -162,11 +170,11 @@ iTable4 ftgen 4, 0, 1024, 7, -1, 1024, 1, 1, -  1, 1023, 1     ;rampdown
 
 endin
 
-giTableL ftgen 0, 0, sr, 10, 1 ;for one second of recording
-giTableR ftgen 0, 0, sr, 10, 1 ;for one second of recording
+giTableL ftgen 0, 0, sr, 10, 1 
+giTableR ftgen 0, 0, sr, 10, 1 
 
 giHalfSine ftgen 0, 0, 1024, 9, .5, 1, 0
-giDelay = 1 ;ms
+giDelay = 1
 gaGMixL, gaGMixR  init  0 
 
 instr 4
@@ -176,9 +184,9 @@ instr 4
 ;effect
 
     ;classic
-kMode chnget "mode"
+kMode chnget "Mode"
 
-kInt chnget "int"
+kInt chnget "Intensity"
 
 
 
@@ -187,36 +195,38 @@ kInt chnget "int"
    
 kRate chnget "Rate"
 
-kDelt chnget "delt"
+kDelt chnget "Time"
 kFB chnget  "Feedback"
-kFB2 chnget  "Feedback2" 
-kFco chnget "fco"
+kFB2 chnget  "Feedback_Synced" 
+kFco chnget "Cutoff"
+kFilterType chnget "FilterType"
 else
-kRate chnget "Rate3"
+kRate chnget "Rate_Granular"
 
-kDelt chnget "delt3"
-kFB chnget  "Feedback3"
+kDelt chnget "Time_Granular"
+kFB chnget  "Feedback_Granular"
 
-kFco chnget "fco3"
+kFco chnget "Cutoff_Granular"
+kFilterType chnget "FilterType_Granular"
 endif
 
-kWide chnget "wide"
+kWide chnget "Wide"
 
 
 
 
 
-kDryGain chnget "dgain"
-kWetGain chnget "wgain"
+kDryGain chnget "DryGain"
+kWetGain chnget "WetGain"
 
 
 iMaxTime =       10
 
 
 
-kSync chnget "syncrate"
-kTempoRaw chnget "tempo"
-kDiv chnget "division"
+kSync chnget "SyncRate"
+kTempoRaw chnget "Tempo"
+kDiv chnget "Division"
 
 kTempo = (kTempoRaw/2)
 kTempo divz 60, kTempo, 1
@@ -224,9 +234,9 @@ kTempo divz kTempo, kDiv, 1
 
                                 ;printk 5, kTempo
 
-kShape chnget "shapes"
+kShape chnget "Shapes"
 
-kFilterType chnget "djfilter"
+
 
 
 kLofi chnget "lofi"
@@ -401,7 +411,6 @@ aOutR = ((ga2*kDryGain)+(aTapR*kWetGain))
 
 outs aOutL, aOutR
 clear aOutL, aOutR
-;clear a1,a2
 
 elseif kMode==3 then
 aDryOutL = (ga1 *kDryGain)
@@ -430,30 +439,29 @@ clear aL,aR
 
 endin
 
-schedule(1 ,0,-1) ;1=intr1 (record)
+schedule(1 ,0,-1) 
 
 instr 2; Granulator
  kGrainDur chnget "size"
- kTranspos chnget "shift"
+ kTranspose chnget "shift"
  kDensity chnget "density"
  kSpread chnget "spread"
- kDistribution = 2 ;0-1
+ kDistribution = 2
  kTrig = metro(kDensity)
-
 
  if kTrig==1 then
   kPointer = k(gaWritePointer)-giDelay/1000
   kOffset = random:k(0,kDistribution/kDensity)
-  schedulek(3,kOffset,kGrainDur/1000,kPointer,cent(kTranspos),kSpread) ;3=intr3 (grain)
+  schedulek(3,kOffset,kGrainDur/1000,kPointer,cent(kTranspose),kSpread) 
  endif
 endin
-schedule(2,giDelay/1000,-1) ;2=instr2 (granulator)
+schedule(2,giDelay/1000,-1) 
 
 instr 3 ;Grain
-kMode chnget "mode"
+kMode chnget "Mode"
 
-kDryGain chnget "dgain"
-kWetGain chnget "wgain"
+kDryGain chnget "DryGain"
+kWetGain chnget "WetGain"
 
 
 
@@ -465,28 +473,22 @@ kWetGain chnget "wgain"
  aOutL = poscil3:a(poscil3:a(kAntiClick,1/p3,giHalfSine),iSpeed,giTableL,iStart)
  aOutR = poscil3:a(poscil3:a(kAntiClick,1/p3,giHalfSine),iSpeed,giTableR,iStart)
 
-ipan         random  0.5 - (iSpread * 0.5), 0.5 + (iSpread * 0.5)  ; random pan position for this grain
-aOutL      =       (aOutL * ipan)           ; left channel mix added to global variable
-aOutR      =       (aOutR * (1 - ipan))   ; right channel mix added to global variable
-
+ipan   random  0.5 - (iSpread * 0.5), 0.5 + (iSpread * 0.5) 
+aOutL      =       (aOutL * ipan)           
+aOutR      =       (aOutR * (1 - ipan))  
 
 
 
 aWetOutL = (aOutL *kWetGain)
 aWetOutR = (aOutR *kWetGain)
 
-         ; output
+; output
          
-      if kMode != 3 then
-      
+      if kMode != 3 then     
    clear aWetOutL, aWetOutR
-    
       else
-     
-             outs    aWetOutL, aWetOutR                                       
-           
-                                      
-           endif
+             outs    aWetOutL, aWetOutR                                                                             
+      endif
 endin
 
 
